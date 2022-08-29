@@ -1,7 +1,6 @@
 import cv2 as cv
 import datetime
-import numpy as np
-from matplotlib import pyplot as plt
+import sys
 
 motion_delay = 10 # number of seconds after last movement
 min_contour_size = 20000
@@ -9,7 +8,7 @@ min_contour_size = 20000
 moving = False
 last_motion = 0
 frame_number = 0
-cap = cv.VideoCapture("movement.mp4")
+cap = cv.VideoCapture(sys.argv[1])
 fps = cap.get(cv.CAP_PROP_FPS)
 ret, frame1 = cap.read()
 ret, frame2 = cap.read()
@@ -32,7 +31,6 @@ while cap.isOpened():
     if big_conture:
         last_motion = frame_number
         if not moving:
-            print(frame_number)
             print(str(datetime.timedelta(seconds=frame_number / fps)))
         moving = True
 

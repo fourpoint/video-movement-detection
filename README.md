@@ -6,3 +6,9 @@ Required packages:
 python3-opencv
 
 ```
+
+Usage:
+```
+python3 main.py videofile.mp4
+
+```
